@@ -1,12 +1,8 @@
 import React from 'react';
-import '../style.css'
+import '../style.css';
+import {play, MOVE} from '../service/rule';
 
-const JANKEN = ['rock', 'scissors', 'paper'];
-const RESULT = {
-  win: 'win',
-  lose: 'lose',
-  draw: 'draw',
-};
+const MOVES = [MOVE.rock, MOVE.scissors, MOVE.paper];
 const i18n = {
   move: {
     rock: 'ぐー',
@@ -22,9 +18,9 @@ const i18n = {
 
 export default class Play extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      selectedMove: 'rock',
+      selectedMove: MOVE.rock,
       move: null,
       opponentMove: null,
       result: null
@@ -36,40 +32,12 @@ export default class Play extends React.Component {
   }
 
   onClick = () => {
-    const opponentMove = this.state.selectedMove ? JANKEN[Math.floor(Math.random() * JANKEN.length)] : null;
-    const result = this.game(this.state.selectedMove, opponentMove);
+    const opponentMove = this.state.selectedMove ? MOVES[Math.floor(Math.random() * MOVES.length)] : null;
+    const result = play(this.state.selectedMove, opponentMove);
     this.setState({
       move: this.state.selectedMove, opponentMove, result
-    })
+    });
   }
-
-  game = (move, opponentMove) => {
-    let result;
-    switch (move) {
-      case 'rock':
-        if (opponentMove == 'scissors') {
-          result = RESULT.win;
-        } else {
-          result = RESULT.lose;
-        }
-        break;
-      case 'scissors':
-        if (opponentMove == 'paper') {
-          result = RESULT.win;
-        } else {
-          result = RESULT.lose;
-        }
-        break;
-      case 'paper':
-        if (opponentMove == 'rock') {
-          result = RESULT.win;
-        } else {
-          result = RESULT.lose;
-        }
-        break;
-    }
-    return result;
-  };
 
   render() {
     const move = i18n.move[this.state.move];
@@ -92,14 +60,14 @@ export default class Play extends React.Component {
       <div>
         <div>
           <select id="moveSelect" value={this.state.selectedMove} onChange={this.onChange}>
-            <option value="rock">ぐー</option>
-            <option value="scissors">ちょき</option>
-            <option value="paper">ぱー</option>
+            <option value={MOVE.rock}>ぐー</option>
+            <option value={MOVE.scissors}>ちょき</option>
+            <option value={MOVE.paper}>ぱー</option>
           </select>
           <button className="button" onClick={this.onClick}>じゃんけんぽん</button>
         </div>
         {resultView}
       </div>
-    )
+    );
   }
 }
