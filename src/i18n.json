@@ -1,0 +1,17 @@
+{
+  "title": "じゃんけんアプリ",
+  "move": {
+    "rock": "ぐー",
+    "scissors": "ちょき",
+    "paper": "ぱー"
+  },
+  "result": {
+    "win": "あなたの勝ち！",
+    "lose": "あなたの負け・・・",
+    "draw": "引き分け"
+  },
+  "player": {
+    "myself": "あなた",
+    "opponent": "あいて"
+  }
+}

@@ -3,18 +3,7 @@ import '../style.css';
 import {play, MOVE} from '../service/rule';
 
 const MOVES = [MOVE.rock, MOVE.scissors, MOVE.paper];
-const i18n = {
-  move: {
-    rock: 'ぐー',
-    scissors: 'ちょき',
-    paper: 'ぱー',
-  },
-  result: {
-    win: 'あなたの勝ち！',
-    lose: 'あなたの負け・・・',
-    draw: '引き分け',
-  },
-};
+const i18n = require('../i18n.json');
 
 export default class Play extends React.Component {
   constructor(props){
@@ -47,8 +36,8 @@ export default class Play extends React.Component {
     const resultView = result ? (
         <div id="resultView">
           <div>
-            <p>あなた: {move}</p>
-            <p>あいて: {opponentMove}</p>
+            <p>{i18n.player.myself}: {move}</p>
+            <p>{i18n.player.opponent}: {opponentMove}</p>
           </div>
           <div id="result">
             <p>{result}</p>
@@ -60,9 +49,9 @@ export default class Play extends React.Component {
       <div>
         <div>
           <select id="moveSelect" value={this.state.selectedMove} onChange={this.onChange}>
-            <option value={MOVE.rock}>ぐー</option>
-            <option value={MOVE.scissors}>ちょき</option>
-            <option value={MOVE.paper}>ぱー</option>
+            <option value={MOVE.rock}>{i18n.move.rock}</option>
+            <option value={MOVE.scissors}>{i18n.move.scissors}</option>
+            <option value={MOVE.paper}>{i18n.move.paper}</option>
           </select>
           <button className="button" onClick={this.onClick}>じゃんけんぽん</button>
         </div>
