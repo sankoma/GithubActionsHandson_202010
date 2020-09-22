@@ -1,0 +1,24 @@
+#moveSelect {
+  margin-right: 10px;
+}
+
+.button,
+.button:focus,
+.button:active {
+  background: bisque;
+  color: black;
+}
+
+.button:enabled:hover {
+  background: rgb(253, 206, 148);
+  color: black;
+}
+
+#resultView {
+  margin-top: 20px
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 30px;
+}

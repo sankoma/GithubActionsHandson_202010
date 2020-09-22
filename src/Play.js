@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 const JANKEN = ['rock', 'scissors', 'paper'];
 const RESULT = {
@@ -76,24 +77,26 @@ export default class Play extends React.Component {
     const result = i18n.result[this.state.result];
 
     const resultView = result ? (
-        <div>
-           <div>
+        <div id="resultView">
+          <div>
             <p>あなた: {move}</p>
             <p>あいて: {opponentMove}</p>
           </div>
-          <p>{result}</p>
+          <div id="result">
+            <p>{result}</p>
+          </div>        
         </div>
     ) : null;
 
     return (
       <div>
         <div>
-          <select value={this.state.selectedMove} onChange={this.onChange}>
+          <select id="moveSelect" value={this.state.selectedMove} onChange={this.onChange}>
             <option value="rock">ぐー</option>
             <option value="scissors">ちょき</option>
             <option value="paper">ぱー</option>
           </select>
-          <button onClick={this.onClick}>じゃんけんぽん</button>
+          <button className="button" onClick={this.onClick}>じゃんけんぽん</button>
         </div>
         {resultView}
       </div>
