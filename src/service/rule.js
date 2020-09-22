@@ -3,7 +3,7 @@ export const MOVE = {
   scissors: 'scissors',
   paper: 'paper'
 };
-const RESULT = {
+export const RESULT = {
   win: 'win',
   lose: 'lose',
   draw: 'draw',
