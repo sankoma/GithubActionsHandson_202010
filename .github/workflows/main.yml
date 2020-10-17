@@ -19,13 +19,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: before checkout sankoma
-        run: ls -a
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: after checkout sankoma
-        run: ls -a
+      - name: install
+        run: npm install
+   
+      - name: test
+        run: npm test
    
       # Runs a single command using the runners shell
       - name: Run a one-line script
