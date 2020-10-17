@@ -36,3 +36,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      # test start 
+      - name: test start  
+        run: 
+             echo test start
+             npm install
+             npm test
+             echo test end
+        
+          
