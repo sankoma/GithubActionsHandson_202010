@@ -22,6 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # test start 
       - name: install
         run: npm install
    
@@ -38,12 +39,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      # test start 
-      - name: test start  
-        run: 
-             echo test start
-             npm install
-             npm test
-             echo test end
         
           
